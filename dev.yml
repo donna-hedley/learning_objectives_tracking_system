@@ -1,0 +1,43 @@
+name: learning-objectives-tracking-system
+
+type: rails
+
+up:
+  - homebrew:
+    - openssl
+    - shopify/shopify/mysql-client:
+        or:        [mysql]
+        conflicts: [mysql-connector-c]
+    # - another_package
+  - ruby: 2.6.3
+  - node:
+      version: v10.11.0
+      yarn: 1.12.3
+  - bundler
+  - railgun
+  - database:
+      bootstrap: bin/rails db:create db:migrate db:schema:load
+      migrate: bin/rails db:migrate db:test:prepare
+      host: learning-objectives-tracking-system.railgun
+      user: root
+      password: ''
+      database: learning_objectives_tracking_system_development
+
+server:
+  port: 15750
+
+commands:
+  console: bin/rails console
+  test:
+    syntax:
+      argument: file
+      optional: args...
+    run:    bin/rails test
+
+# These use fuzzy-matching, so you can (e.g.) `dev open app`
+open:
+  "My Application": https://learning-objectives-tracking-system.myshopify.io
+  #ops:
+    # - https://datadog.link
+    # - https://bugsnag.link
+    # - https://kafka.link
