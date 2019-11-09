@@ -1,2 +1,11 @@
 <% provide(:title, "Home") %>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<div class="center jumbotron">
+  <h2>Welcome to the </h2> <h1>Shopify Learning Objective Tracking System</h1>
+
+  <h2> Track your progress with Shopify easily and affordably. </h2>
+
+  <%= link_to "Sign Up Now!", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
+
+<%= link_to image_tag("logo.jpeg", alt: "Make Commerce Better"),
+            'http://rubyonrails.org/' %>
