@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_10_042232) do
+ActiveRecord::Schema.define(version: 2019_11_10_144011) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_11_10_042232) do
     t.string "password_digest"
     t.string "first_name"
     t.string "last_name"
+    t.boolean "admin"
   end
 
 end

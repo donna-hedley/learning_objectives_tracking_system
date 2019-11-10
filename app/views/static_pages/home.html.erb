@@ -1,6 +1,13 @@
 <% provide(:title, "Home") %>
 <div class="center jumbotron">
-  <h2>Welcome to the </h2> <h1>Shopify Learning Objective Tracking System</h1>
+
+
+  <% if logged_in?  %>
+    <h2> Having fun yet?</h2>
+  <% else %>
+
+
+  <h1>Welcome to SLOTS</h1> <h2> Shopify Learning Objective Tracking System</h2>
 
   <h2> Track your progress with Shopify easily and affordably. </h2>
 
@@ -9,3 +16,5 @@
 
 <%= link_to image_tag("logo.jpeg", alt: "Make Commerce Better"),
             'http://rubyonrails.org/' %>
+
+<% end %>
