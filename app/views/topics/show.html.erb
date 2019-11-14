@@ -1,0 +1,24 @@
+<p>
+  <strong>Title:</strong>
+  <%= @topic.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @topic.description %>
+</p>
+<hr>
+<div style="border: solid 2px black">
+<h2>Objectives</h2>
+<%= render @topic.objectives %>
+</div>
+
+<hr>
+<h2>Add an Objective</h2>
+<%= render 'objectives/form' %>
+
+
+
+
+<br><button><%= link_to 'Edit', edit_topic_path(@topic) %> </button>
+&nbsp;<button>  <%= link_to 'Back', topics_path %></button>

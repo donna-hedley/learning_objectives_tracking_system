@@ -1,0 +1,19 @@
+<h1>Edit Objective</h1>
+<%= form_with scope: @objective, url: topic_path, local: true do |form| %>
+
+<p>
+<%= form.label :title %><br>
+<%= form.text_field :title %>
+</p>
+
+<p>
+  <%= form.label :details %><br>
+  <%= form.text_area :details %>
+</p>
+<p>
+<%= form.submit %>
+</p>
+<% end %>
+
+
+<br><button>  <%= link_to 'Return', topic_path(@topic) %></button>

@@ -1,0 +1,18 @@
+<hr>
+<p>
+  <strong>Title:</strong>
+  <%= objective.title %>
+</p>
+<p>
+  <strong>Details:</strong>
+  <%= objective.details %>
+</p>
+<p>
+  <%= link_to 'Delete Objective', [objective.topic,  objective],
+      method: :delete,
+      data: { confirm: 'Are you sure?' } %>
+
+</p>
+<p>
+  <%= link_to 'Edit Objective', edit_topic_objective_path(objective, @topic) %>
+</p>

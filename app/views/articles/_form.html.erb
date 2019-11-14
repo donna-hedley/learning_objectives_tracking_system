@@ -1,5 +1,7 @@
-<%= form_with scope: :article, url: articles_path, local: true do |form| %>
-<% if @article.errors.any? %>
+
+<%= form_with scope: @objective, url: articles_path, local: true do |form| %>
+
+  <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2>
         <%= pluralize(@article.errors.count, "error") %> prohibited
@@ -26,4 +28,5 @@
   <p>
     <%= form.submit %>
   </p>
+
 <% end %>
