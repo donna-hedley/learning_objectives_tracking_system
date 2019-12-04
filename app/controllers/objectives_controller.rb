@@ -1,4 +1,9 @@
 class ObjectivesController < ApplicationController
+
+  def index
+    @topics = Topic.all
+  end
+
   def create
     @topic = Topic.find(params[:topic_id])
     @objective = @topic.objectives.create(objective_params)
@@ -6,8 +11,7 @@ class ObjectivesController < ApplicationController
   end
 
   def edit
-    @topic = Topic.find(params[:topic_id])
-    @objective = @topic.objectives.find(params[:id])
+    @objective = Objective.find(params[:id])
   end
 
   def destroy
@@ -18,11 +22,10 @@ class ObjectivesController < ApplicationController
   end
 
   def update
-    @topic = Topic.find(params[:topic_id])
-    @objective = @topic.objectives.find(params[:id])
+    # @topic = Topic.find(params[:topic_id])
+    @objective = objectives.find(params[:id])
     @objective.update(objective_params)
       redirect_to topic_path(@topic)
-
   end
 
   private

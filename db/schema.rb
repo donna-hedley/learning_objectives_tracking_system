@@ -10,11 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_14_012919) do
+ActiveRecord::Schema.define(version: 2019_11_16_154305) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "title"
     t.text "text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "author_books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "book_id", null: false
+    t.bigint "author_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_author_books_on_author_id"
+    t.index ["book_id"], name: "index_author_books_on_book_id"
+  end
+
+  create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "title", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -26,6 +47,20 @@ ActiveRecord::Schema.define(version: 2019_11_14_012919) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
+  create_table "notes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.text "plan_memo"
+    t.text "evidence_memo"
+    t.text "method_memo"
+    t.text "health_check_memo"
+    t.integer "health_check_status"
+    t.bigint "user_id", null: false
+    t.bigint "objective_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["objective_id"], name: "index_notes_on_objective_id"
+    t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
   create_table "objectives", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -56,6 +91,10 @@ ActiveRecord::Schema.define(version: 2019_11_14_012919) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "author_books", "authors"
+  add_foreign_key "author_books", "books"
   add_foreign_key "comments", "articles"
+  add_foreign_key "notes", "objectives"
+  add_foreign_key "notes", "users"
   add_foreign_key "objectives", "topics"
 end

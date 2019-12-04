@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  plan_memo: MyText
+  evidence_memo: MyText
+  method_memo: MyText
+  health_check_memo: MyText
+  health_check_status: 1
+  user: one
+  objective: one
+
+two:
+  plan_memo: MyText
+  evidence_memo: MyText
+  method_memo: MyText
+  health_check_memo: MyText
+  health_check_status: 1
+  user: two
+  objective: two

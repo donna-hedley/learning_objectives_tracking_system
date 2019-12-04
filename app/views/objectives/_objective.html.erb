@@ -1,18 +1,13 @@
 <hr>
+<h4><%= objective.title %></h4>
 <p>
-  <strong>Title:</strong>
-  <%= objective.title %>
+  <%= simple_format objective.details %>
 </p>
 <p>
-  <strong>Details:</strong>
-  <%= objective.details %>
-</p>
-<p>
-  <%= link_to 'Delete Objective', [objective.topic,  objective],
-      method: :delete,
-      data: { confirm: 'Are you sure?' } %>
 
-</p>
-<p>
-  <%= link_to 'Edit Objective', edit_topic_objective_path(objective, @topic) %>
+  <button><%= link_to 'Delete Objective', [objective.topic,  objective],
+      method: :delete,
+      data: { confirm: 'Are you sure?' } %></button>
+
+<button>  <%= link_to 'Edit Objective', edit_objective_path(objective) %></button>
 </p>

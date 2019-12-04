@@ -1,0 +1,19 @@
+<h1>My Objectives</h1>
+
+<% @topics.each do |topic| %>
+
+<ul style="list-style-type: none;">
+  <li style="list-style-type: none;"><strong><%= topic.title %></strong></li>
+<% objs = Objective.where(topic_id: topic.id) %>
+    <% objs.each do |o| %>
+  <button><li style="list-style-type: none;">
+    
+    <% if Note.where(user_id: session[:user_id], objective_id: o.id).present? %>
+        <%= link_to o.title , edit_note_path(o.id) %>
+    <% else %>
+        <%= link_to o.title , new_note_path(:objective_id => o.id) %>
+    <% end %>
+</li></button>
+<% end %>
+</ul><br>
+<% end %>

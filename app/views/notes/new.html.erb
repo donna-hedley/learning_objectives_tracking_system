@@ -1,0 +1,47 @@
+<h1>New</h1>
+
+
+<% myObj = Objective.find(params[:objective_id])%>
+<% myTopic = Topic.find(myObj.topic_id) %>
+
+<p><strong><em>Topic: <%= myTopic.title%></em><strong><p> </p>
+<p><strong>Objective: </strong> <%= myObj.title%><p>
+<p><strong>Details:</strong> </br><%= simple_format myObj.details%></p><br>
+
+<%= form_for(@note) do |form| %>
+
+
+<%= form.hidden_field :objective_id, :value => params[:objective_id] %>
+<%= form.hidden_field :user_id, :value => session[:user_id] %>
+
+
+
+
+  <p> <%= form.label "Plan of Action" %><br>
+      <%= form.text_area :plan_memo, :rows => 10 %>
+  </p>
+
+  <p> <%= form.label "Evidence of Progress" %><br>
+
+      <%= form.text_area :evidence_memo, :rows => 10 %>
+  </p>
+
+  <p> <%= form.label "Methods to Achieve Goals" %><br>
+
+      <%= form.text_area :method_memo, :rows => 10 %>
+  </p>
+
+<p>
+  <%= form.label "Health Check Status " %><br>
+  <%= form.select :health_check_status, options_for_select([["Select One", ""],
+  ["1 *", "1"], ["2 **", "2"], ["3 ***", "3"], ["4 ****", "4"], ["5 *****", "5"]])  %>
+</p>
+  <p> <%= form.label "Health Check Notes" %><br>
+
+      <%= form.text_area :health_check_memo, :rows => 10 %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+
+  <% end %>

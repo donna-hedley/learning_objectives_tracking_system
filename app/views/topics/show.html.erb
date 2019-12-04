@@ -1,14 +1,16 @@
+<br><button><%= link_to 'Edit', edit_topic_path(@topic) %> </button>
+&nbsp;<button>  <%= link_to 'Back', topics_path %></button><br><br>
+
 <p>
   <strong>Title:</strong>
   <%= @topic.title %>
 </p>
-
 <p>
   <strong>Description:</strong>
   <%= @topic.description %>
 </p>
 <hr>
-<div style="border: solid 2px black">
+<div style="border: solid 2px black; padding:2px;">
 <h2>Objectives</h2>
 <%= render @topic.objectives %>
 </div>

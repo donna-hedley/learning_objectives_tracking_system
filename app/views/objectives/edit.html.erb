@@ -1,5 +1,5 @@
 <h1>Edit Objective</h1>
-<%= form_with scope: @objective, url: topic_path, local: true do |form| %>
+<%= form_with scope: @objective, url: objective_path, local: true do |form| %>
 
 <p>
 <%= form.label :title %><br>
@@ -16,4 +16,4 @@
 <% end %>
 
 
-<br><button>  <%= link_to 'Return', topic_path(@topic) %></button>
+<br><button> Return</button>
